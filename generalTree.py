@@ -11,8 +11,8 @@ class colors:
 
 
 class GeneralTree():
-    def __init__(self, value, evaluation=None, children=[], color=False):
-        self.value = value
+    def __init__(self, label, evaluation=None, children=[], color=False):
+        self.label = label
         self.evaluation = evaluation
         self.depth = 1
         self.children = children
@@ -30,12 +30,12 @@ class GeneralTree():
 
     def get_evaluation(self):
         if self.evaluation is None:
-            return int(self.value)
+            return int(self.label)
         else:
             return self.evaluation
 
     def get_tree_view(self):
-        tree_str = str(self.value)
+        tree_str = str(self.label)
         if self.color:
             tree_str += f"{colors.WARNING} " + str(self.evaluation) + f"{colors.ENDC}"
         else:
@@ -53,7 +53,7 @@ class GeneralTree():
 
 
     def __str__(self):
-        ret = "( " + str(self.value) + " "
+        ret = "( " + str(self.label) + " "
         if self.color:
             ret += f"{colors.WARNING}" + str(self.evaluation) + f"{colors.ENDC} "
         for child in self.children:

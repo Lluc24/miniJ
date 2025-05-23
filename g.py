@@ -8,7 +8,8 @@ if __name__ == "__main__":
     args = sys.argv
     file = args[1]
     input_stream = FileStream(file)
-    print("Input stream:", input_stream)
+    print("Input stream:")
+    print(input_stream)
     lexer = exprsLexer(input_stream)
     token_stream = CommonTokenStream(lexer)
     parser = exprsParser(token_stream)
