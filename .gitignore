@@ -1,0 +1,10 @@
+env/
+__pycache__/
+.idea/
+.python-version
+
+exprsLexer.py
+exprsParser.py
+exprsVisitor.py
+*.interp
+*.tokens
