@@ -10,12 +10,30 @@ def get_number(num_str):
 
 class TreeEval(exprsVisitor):
 
+    def __init__(self):
+        super().__init__()
+        self.memory = {}
+
     # Visit a parse tree produced by exprsParser#genExpr.
     def visitGenExpr(self, ctx):
         expr_tree = self.visitChildren(ctx)
         print("Expression tree:", expr_tree)
         print("Expression evaluation:", expr_tree.get_evaluation())
         print(expr_tree.get_tree_view())
+
+    # Visit a parse tree produced by exprsParser#genAssign.
+    def visitGenAssign(self, ctx):
+        [var, _, expr] = list(ctx.getChildren())
+        var_str = var.getText()
+        expr_tree = self.visit(expr)
+        expr_eval = expr_tree.get_evaluation()
+
+        self.memory[var_str] = expr_eval
+
+        var_tree = GeneralTree(var_str, evaluation=var_str, color=True)
+        result_tree = GeneralTree(':=', f'{var_str} := {expr_eval}', [var_tree, expr_tree], color=True)
+        print(result_tree.get_tree_view())
+        return result_tree
 
     # Visit a parse tree produced by exprsParser#binOperExpr.
     def visitBinOperExpr(self, ctx):
@@ -34,32 +52,32 @@ class TreeEval(exprsVisitor):
             result = np.multiply(left_eval, right_eval)
         elif op_str == "%":
             result = np.divide(left_eval, right_eval)
-        elif op_str== "^":
+        elif op_str == "^":
             result = np.power(left_eval, right_eval)
+        elif op_str == "|":
+            result = np.mod(left_eval, right_eval)
         result_tree = GeneralTree(op_str, result, [left_tree, right_tree], color=True)
+        return result_tree
+
+    # Visit a parse tree produced by exprsParser#parExpr.
+    def visitParExpr(self, ctx):
+        [_, expr_list, _] = list(ctx.getChildren())
+        expr_tree = self.visit(expr_list)
+        left_par_tree = GeneralTree("(", "(", color=True)
+        right_par_tree = GeneralTree(")", ")", color=True)
+        result_tree = GeneralTree("parExpr", expr_tree.get_evaluation(), [left_par_tree, expr_tree, right_par_tree], color=True)
         return result_tree
 
     # Visit a parse tree produced by exprsParser#listExpr.
     def visitListExpr(self, ctx):
-        [expr_list] = list(ctx.getChildren())
-        tree = self.visit(expr_list)
-        return tree
-
-    # Visit a parse tree produced by exprsParser#buildList.
-    def visitBuildList(self, ctx):
-        [init, last] = list(ctx.getChildren())
-        last_int = get_number(last.getText())
-        init_tree = self.visit(init)
-        last_tree = GeneralTree("last", last_int, color=False)
-
-        init_list = init_tree.get_evaluation()
-        built_list = np.append(init_list, last_int)
-        result_tree = GeneralTree("buildList", built_list, [init_tree, last_tree], color=True)
+        expr_list = list(ctx.getChildren())
+        nums = np.array([get_number(expr.getText()) for expr in expr_list], dtype=int)
+        result_tree = GeneralTree("listExpr", nums, color=True)
         return result_tree
 
-    # Visit a parse tree produced by exprsParser#baseList.
-    def visitBaseList(self, ctx):
-        [base] = list(ctx.getChildren())
-        base_int = get_number(base.getText())
-        base_tree = GeneralTree(f"baseList", np.array([base_int]), color=False)
-        return base_tree
+    # Visit a parse tree produced by exprsParser#varExpr.
+    def visitVarExpr(self, ctx):
+        var_str = ctx.getText()
+        var_value = self.memory[var_str]
+        result_tree = GeneralTree(var_str, var_value, color=True)
+        return result_tree
