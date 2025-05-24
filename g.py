@@ -8,15 +8,11 @@ if __name__ == "__main__":
     args = sys.argv
     file = args[1]
     input_stream = FileStream(file)
-    print("Input stream:")
-    print(input_stream)
     lexer = exprsLexer(input_stream)
     token_stream = CommonTokenStream(lexer)
     parser = exprsParser(token_stream)
     tree = parser.root()
-
-    str_tree = tree.toStringTree(recog=parser)
-    print("Parse tree:", str_tree)
+    #print(tree.toStringTree(recog=parser))
 
     visitor = TreeEval()
     visitor.visit(tree)
