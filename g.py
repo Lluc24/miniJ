@@ -1,18 +1,17 @@
 import sys
 from antlr4 import *
-from exprsLexer import exprsLexer
-from exprsParser import exprsParser
-from treeEval import TreeEval
+from gLexer import gLexer
+from gParser import gParser
+from visitor import Visitor
 
 if __name__ == "__main__":
     args = sys.argv
     file = args[1]
     input_stream = FileStream(file)
-    lexer = exprsLexer(input_stream)
+    lexer = gLexer(input_stream)
     token_stream = CommonTokenStream(lexer)
-    parser = exprsParser(token_stream)
+    parser = gParser(token_stream)
     tree = parser.root()
-    #print(tree.toStringTree(recog=parser))
 
-    visitor = TreeEval()
+    visitor = Visitor()
     visitor.visit(tree)
