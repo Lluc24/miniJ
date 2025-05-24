@@ -1,4 +1,4 @@
-1 2 3
+1 2 3    NB. resultat: 1 2 3
 
 1 1 1 + 1 2 3    NB. resultat: 2 3 4
 
@@ -14,27 +14,27 @@ NB. Aqui aniria el que dona error per llargades diferents
 
 _1 * 2 3    NB. resultat: _2 _3
 
-5 - 2
+5 - 2    NB. resultat: 3
 
-2 * 3
+2 * 3    NB. resultat: 6
 
-6 % 2
+6 % 2    NB. resultat: 3
 
-2 | 7
+2 | 7    NB. resultat: 1
 
-2 ^ 3
+2 ^ 3    NB. resultat: 8
 
-5 4 9 > 6 4 4
+5 4 9 > 6 4 4    NB. resultat: 0 0 1
 
-5 < 1 7 1
+5 < 1 7 1    NB. resultat: 0 1 0
 
-9 _1 _5 _1 >= _1
+9 _1 _5 _1 >= _1    NB. resultat: 1 1 0 1
 
-_6 <= _6
+_6 <= _6    NB. resultat: 1
 
-1 2 5 = 5 6 5
+1 2 5 = 5 6 5    NB. resultat: 0 0 1
 
-0 0 _1 3 <> 1 0 _1 3
+0 0 _1 3 <> 1 0 _1 3    NB. resultat: 1 0 0 0
 
 ] 1    NB. resultat: 1
 
