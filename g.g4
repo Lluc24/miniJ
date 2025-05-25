@@ -27,3 +27,5 @@ NUM : '_'?[0-9]+ ;
 
 COM : 'NB.' ~[\n]* -> skip ;
 WS  : [ \t\r]+ -> skip ;
+
+LEXICAL_ERROR : . ;

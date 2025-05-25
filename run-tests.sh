@@ -1,19 +1,15 @@
 #! /bin/bash
 
-python_script="g.py"
-path_tests="tests"
+script="g.py"
+directori_tests="tests"
 
-for test_file in $path_tests/*.j
+for fitxer_test in $directori_tests/*.j
 do
-  test_name=$(basename "$test_file" .j)
-	expected_output="${path_tests}/${test_name}.out"
-	actual_output="${path_tests}/${test_name}.tmp"
-	python $python_script $test_file > $actual_output
-	echo "Differences between $expected_output and $actual_output:"
-	echo "------------------------------------------------------------------"
-	echo "------------------------------------------------------------------"
-	diff $expected_output $actual_output
-	echo "------------------------------------------------------------------"
-	echo "------------------------------------------------------------------"
-	rm $actual_output
+  nom_test=$(basename "$fitxer_test" .j)
+	sortida_esperada="${directori_tests}/${nom_test}.out"
+	sortida_obtinguda="${directori_tests}/${nom_test}.tmp"
+	python $script "$fitxer_test" > "$sortida_obtinguda"
+	echo "Diferencies entre $sortida_esperada i $sortida_obtinguda:"
+	diff "$sortida_esperada" "$sortida_obtinguda"
+	rm "$sortida_obtinguda"
 done
