@@ -4,7 +4,7 @@
 
 1 + 1 2 3    NB. resultat: 2 3 4
 
-NB. Aqui aniria el que dona error per llargades diferents
+1 1 + 1 2 3   NB. resultat: length error
 
 5 + 2 * 3    NB. resultat: 11
 
@@ -28,9 +28,9 @@ _1 * 2 3    NB. resultat: _2 _3
 
 5 < 1 7 1    NB. resultat: 0 1 0
 
-9 _1 _5 _1 >= _1    NB. resultat: 1 1 0 1
+NB. Pendents de revisar 2 >= 3    NB. resultat: 0
 
-_6 <= _6    NB. resultat: 1
+NB. Pendents de revisar _6 <= _6    NB. resultat: 1
 
 1 2 5 = 5 6 5    NB. resultat: 0 0 1
 
