@@ -1,6 +1,5 @@
 grammar g;
-root : (gen? '\n')* EOF
-     ;
+root : (gen? '\n')* EOF ;
 
 gen : expr                                   # genExpr
     | VAR '=:' expr                          # genAssign
@@ -17,6 +16,7 @@ expr : <assoc=right> expr operBin expr       # exprOperBin
 func : func '@:' func                        # funcComp
      | expr operBin ']'                      # funcOperBin
      | operUn                                # funcOperUn
+     | '(' func ')'                          # funcPar
      ;
 
 operBin : ('+' | '-' | '*' | '%' | '^' | '|' | '>' | '<' | '>=' | '<=' | '=' | '<>' | ',' | '#' | '{')('~')? ;

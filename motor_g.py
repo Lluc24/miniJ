@@ -65,7 +65,7 @@ class GestorOperadors:
             f = self.obtenir_funcio(operador[:-1])
             return lambda x, y: f(y, x)
         elif operador in self.mapa_funcions_bin:
-            if operador == '{': # No té comprovació de llargada
+            if operador == '{' or operador == ',': # No tenen comprovació de llargada
                 return self.mapa_funcions_bin[operador]
             else:
                 return self._comprovacio_llargada(self.mapa_funcions_bin[operador])
