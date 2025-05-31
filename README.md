@@ -43,7 +43,7 @@ make
 ```
 
 Finalment, per executar l'intèrpret, cal executar el fitxer `g.py` passant-li com a paràmetre el fitxer de codi G que es
-vol interpretar. Utilitzarem l'exemple proporcionat per l'enunciat per mostrar el funcionament:
+vol interpretar. Utilitzarem el fitxer que conté els exemples proporcionats per l'enunciat per mostrar el funcionament:
 ```bash
 python g.py exemples.j
 ```
