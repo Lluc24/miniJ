@@ -1,7 +1,7 @@
 1 2 3
 2 3 4
 2 3 4
-length error
+Error de valor: length error
 11
 25
 13
@@ -13,6 +13,8 @@ _2 _3
 8
 0 0 1
 0 1 0
+0
+1
 0 0 1
 1 0 0 0
 1

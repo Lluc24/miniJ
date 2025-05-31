@@ -1,0 +1,2 @@
+8 errors lèxics/sintàctics.
+(root (gen (expr (expr 5) (operBin =) (expr operUn (expr (operUn <) (expr 5))))) \n (gen (expr operUn (expr (operUn +) (expr 1 2 3)))) \n : (gen (expr operUn (expr (operUn +) (expr 1 2 3)))) \n =: (gen (expr (operUn #) (expr (operUn ]) (expr @ 1 2 3)))) <missing '\n'> (gen (expr operUn (expr (operUn +) (expr (operUn ]) (expr \n x))))) : = 1 \n 1 2 3 $ 1 2 3 \n z + 4 \n)

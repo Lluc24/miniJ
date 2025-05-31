@@ -28,9 +28,9 @@ _1 * 2 3    NB. resultat: _2 _3
 
 5 < 1 7 1    NB. resultat: 0 1 0
 
-NB. Pendents de revisar 2 >= 3    NB. resultat: 0
+2 >= 3    NB. resultat: 0
 
-NB. Pendents de revisar _6 <= _6    NB. resultat: 1
+_6 <= _6    NB. resultat: 1
 
 1 2 5 = 5 6 5    NB. resultat: 0 0 1
 

@@ -14,6 +14,8 @@ from antlr4 import *
 from gLexer import gLexer
 from gParser import gParser
 from visitor import Visitor
+import warnings
+warnings.filterwarnings("ignore")
 
 def main():
     """
@@ -40,7 +42,7 @@ def main():
         visitor = Visitor()
         visitor.visit(tree)
     else:
-        print(parser.getNumberOfSyntaxErrors(), 'errors de sintaxi.')
+        print(parser.getNumberOfSyntaxErrors(), 'errors lèxics/sintàctics.')
         tree = tree.toStringTree(recog=parser)
         print(tree)
         if tree.find(r"<missing '\n'> <EOF>") != -1:
@@ -48,4 +50,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as error:
+        print(f"Error inesperat: {error}")
