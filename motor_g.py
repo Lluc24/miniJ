@@ -6,8 +6,6 @@ com la codificació/descodificació d'enters entre el format G i codificació in
 
 Com a codificació interna utilitza matrius d'una dimensió de NumPy d'enters.
 """
-
-from functools import reduce
 import numpy as np
 
 
@@ -72,7 +70,7 @@ class GestorOperadors:
         elif operador in self.mapa_funcions_un:
             return self.mapa_funcions_un[operador]
         else:
-            raise ValueError(f"unknown operator '{operador}'")
+            raise ValueError(f"operador desconegut '{operador}'")
 
     def _funcio_cardinalitat_variable(self, *args):
         """

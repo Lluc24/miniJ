@@ -47,9 +47,9 @@ class Visitor(gVisitor):
             resultat = self.pila.pop()
             print(descodifica_llista(resultat))
         except ValueError as ve:
-            print(ve)
+            print(f"Error de valor: {ve}")
         except Exception as ex:
-            print(f"Unknown error: {ex}")
+            print(f"Error durant l'execució: {ex}")
 
     def visitGenAssign(self, ctx):
         """
