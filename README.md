@@ -21,7 +21,8 @@ Els fitxers que es poden trobar al projecte són els següents:
 
 ## Instal·lació
 
-En aquesta pràctica s'ha utilitzat Python 3.10.9. Per instalar les dependències, cal crear i activar un entorn virtual:
+En aquesta pràctica s'ha utilitzat Python 3.10.9. Per instal·lar les dependències, cal crear i activar un entorn
+virtual:
 
 ```bash
 python -m venv env
@@ -33,7 +34,7 @@ Un cop activat l'entorn virtual, cal instal·lar les dependències:
 pip install numpy antlr4-tools 
 antlr4
 
-antlr4-python3-runtime
+pip install antlr4-python3-runtime
 ```
 
 El Makefile permet generar els fitxers necessaris per a l'execució de l'intèrpret:
@@ -44,7 +45,7 @@ make
 Finalment, per executar l'intèrpret, cal executar el fitxer `g.py` passant-li com a paràmetre el fitxer de codi G que es
 vol interpretar. Utilitzarem l'exemple proporcionat per l'enunciat per mostrar el funcionament:
 ```bash
-python g.py exemple.j
+python g.py exemples.j
 ```
 
 ## Funcionament del codi i decisions de disseny
@@ -72,10 +73,10 @@ l'analitzador sintàctic descendent LL(k) pugui tractar-los segons el context.
 
 ### Controlador `g.py`
 El fitxer `g.py` és el punt d'entrada del programa. S'encarrega de fer l'anàlisi lèxica i sintàctica del codi G. En cas
-de detectar errors sintàctics o lèxics, els mostra per pantalla i finalitza l'execució. Si no hi ha errors, delega a
-`visitor.py` l'anàlisi semàntica de l'AST. Notar que es construeix l'AST sobre tot el fitxer passat com a paràmetre.
-Això és diferent que analizar línia a línia. Fixem-nos que si una línia té un error lèxic o sintàctic, l'analitzador no
-continuarà:
+de detectar errors sintàctics o lèxics, els mostra per pantalla junt amb l'estructura de l'AST i finalitza l'execució.
+Si no hi ha errors, delega a `visitor.py` l'anàlisi semàntica de l'AST. Notar que es construeix l'AST sobre tot el
+fitxer passat com a paràmetre. Això és diferent que analitzar línia a línia. Fixem-nos que si una línia té un error
+lèxic o sintàctic, l'analitzador no continuarà:
 
 ```bash
 echo "1 2 3 $ 1 2 3   NB. Error lexic" > prova.j
@@ -176,7 +177,7 @@ rm aritmetics.tmp
 
 També es poden executar tots alhora. Per fer-ho, cal verificar que no hi hagi altres fitxers `.j`, com el `prova.j`
 creat anteriorment per veure el funcionament de l'intèrpret. En cas de ser-hi, cal esborrar-lo amb `rm prova.j`. A
-continuació, el següent script executa tots els jocs de prova:
+continuació, el següent script executa tots els jocs de prova (es pot copiar i enganxar directament a la consola):
 
 ```bash
 for fitxer_test in *.j
