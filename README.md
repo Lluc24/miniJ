@@ -15,7 +15,7 @@ Els fitxers que es poden trobar al projecte són els següents:
     - Pels operadors aritmètics: `aritmetics.j` junt amb `aritmetics.out`.
     - Pels operadors booleans i relacionals: `booleans-i-relacionals.j` junt amb `booleans-i-relacionals.out`.
     - Per les funcions i variables: `funcions-i-variables.j` junt amb `funcions-i-variables.out`.
-    - L'exemple proporcionat per l'enunciat: `exemple.j` junt amb `exemple.out`.
+    - Els exemples proporcionats per l'enunciat: `exemples.j` junt amb `exemples.out`.
     - Pels errors sintàctics i lèxics: `errors-sintactics-i-lexics.j` junt amb `errors-sintactics-i-lexics.out`.
     - Pels errors semàntics: `errors-semantics.j` junt amb `errors-semantics.out`.
 
