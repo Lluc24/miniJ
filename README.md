@@ -1,7 +1,17 @@
-# miniJ
+# Introduction
 
-Aquest treball correspon a la pràctica de GEI-LP edició 2024-2025 Q2. **miniJ** és un intèrpret del llenguatge G,
-el qual correspon a una versió simplificada de J (derivat d'APL). Utilitza Python, ANTLR i Numpy.
+This project was developed as part of the [GEI-LP](https://www.fib.upc.edu/en/studies/bachelors-degrees/bachelor-degree-informatics-engineering/curriculum/syllabus/LP) course (2024–2025 Q2) at Universitat Politècnica de Catalunya. miniJ is an interpreter of the language G, a simplified version of J (derived from APL), implemented using Python, ANTLR, and NumPy.
+
+Through this work, I learned to:
+- Understand the different phases of compilation, in particular lexical, syntactic, and semantic analysis.
+- Use tools for building lexical and syntactic analyzers, such as ANTLR.
+- Differentiate between the design of a compiler and an interpreter.
+
+The project was evaluated by Professor `Edelmira Pasarella` and received the maximum grade (10/10).
+
+The original project assignment can be found in this repository: [gebakx/lp-mini-j](https://github.com/gebakx/lp-mini-j) (in Catalan). The submission delivered for evaluation is the file `entrega.zip` included in this repository.
+
+The following README text corresponds to the original project documentation written in Catalan.
 
 ## Estructura del projecte
 Els fitxers que es poden trobar al projecte són els següents:
