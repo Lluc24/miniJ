@@ -2,6 +2,8 @@
 
 This project was developed as part of the [GEI-LP](https://www.fib.upc.edu/en/studies/bachelors-degrees/bachelor-degree-informatics-engineering/curriculum/syllabus/LP) course (2024–2025 Q2) at Universitat Politècnica de Catalunya. miniJ is an interpreter of the language G, a simplified version of J (derived from APL), implemented using Python, ANTLR, and NumPy.
 
+![J](jblue.png)
+
 Through this work, I learned to:
 - Understand the different phases of compilation, in particular lexical, syntactic, and semantic analysis.
 - Use tools for building lexical and syntactic analyzers, such as ANTLR.
